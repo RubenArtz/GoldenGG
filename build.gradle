@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'ruben_artz.spigot'
-version = '1.8.18'
+version = '1.9.18'
 
 repositories {
     mavenCentral()
