@@ -13,7 +13,7 @@ import ruben_artz.spigot.main.GMain;
 import ruben_artz.spigot.utils.GUtils;
 
 public class GAuto implements Listener {
-    private static final GMain plugin = GMain.getPlugin(GMain.class);
+    private final GMain plugin = GMain.getPlugin(GMain.class);
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void writeAuto(GameEndEvent event) {

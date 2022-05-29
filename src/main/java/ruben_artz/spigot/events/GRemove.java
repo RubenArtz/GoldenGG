@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import ruben_artz.spigot.main.GMain;
 
 public class GRemove implements Listener {
-    private static final GMain plugin = GMain.getPlugin(GMain.class);
+    private final GMain plugin = GMain.getPlugin(GMain.class);
 
     /*
     * Removes all saved player UUIDs
