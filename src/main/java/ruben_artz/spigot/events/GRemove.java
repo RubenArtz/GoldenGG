@@ -4,6 +4,7 @@ import com.andrei1058.bedwars.api.arena.GameState;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.events.gameplay.GameStateChangeEvent;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import ruben_artz.spigot.main.GMain;
 
@@ -13,7 +14,7 @@ public class GRemove implements Listener {
     /*
     * Removes all saved player UUIDs
      */
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void removeGolden(GameStateChangeEvent event) {
         IArena arena = event.getArena();
         if (event.getNewState().equals(GameState.restarting)) {

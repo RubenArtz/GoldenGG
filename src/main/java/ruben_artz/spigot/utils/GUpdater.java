@@ -38,8 +38,6 @@ public class GUpdater {
                 GUpdater.plugin.sendLogger(Level.WARNING, "--------------------------------------------------------------------------------------");
             }
         }
-        catch (Exception exception) {
-            GUpdater.plugin.sendLogger(Level.SEVERE, "We have problems establishing connection with spigotmc.org");
-        }
+        catch (Exception ignored) {}
     }
 }
