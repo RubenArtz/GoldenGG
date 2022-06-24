@@ -63,13 +63,11 @@ public final class GMain extends JavaPlugin {
     }
 
     public void getGolden() {
-        if (Bukkit.getPluginManager().isPluginEnabled("BedWars1058")) {
-            this.configManager = new ConfigManager(this, "config", "plugins/BedWars1058/Addons/GoldenGG");
-            final YamlConfiguration yaml = this.configManager.getYml();
-            yaml.addDefault("GOLDEN-GG.TEXT-COLOR", "&6");
-            yaml.addDefault("GOLDEN-GG.TEXT-AUTO-GG", "{Level}{Team Color} %vault_prefix%{Player}&f: &6gg");
-            yaml.options().copyDefaults(true);
-            this.configManager.save();
-        }
+        this.configManager = new ConfigManager(this, "config", "plugins/BedWars1058/Addons/GoldenGG");
+        final YamlConfiguration yaml = this.configManager.getYml();
+        yaml.addDefault("GOLDEN-GG.TEXT-COLOR", "&6");
+        yaml.addDefault("GOLDEN-GG.TEXT-AUTO-GG", "{Level}{Team Color} %vault_prefix%{Player}&f: &6gg");
+        yaml.options().copyDefaults(true);
+        this.configManager.save();
     }
 }
