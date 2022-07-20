@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import ruben_artz.spigot.utils.GUtils;
+import ruben_artz.spigot.utils.ProjectUtils;
 
 public class GWinners implements Listener {
 
@@ -18,7 +18,7 @@ public class GWinners implements Listener {
         event.getWinners().forEach(uuid -> {
             Player player = Bukkit.getPlayer(uuid);
             if (player != null && player.hasPermission("BEDWARS1058.GOLDEN")) {
-                GUtils.addGolden(player);
+                ProjectUtils.addGolden(player);
             }
         });
     }

@@ -8,7 +8,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import ruben_artz.spigot.main.GMain;
-import ruben_artz.spigot.utils.GUtils;
+import ruben_artz.spigot.utils.ProjectUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,18 +19,18 @@ public class GCommand implements CommandExecutor, TabCompleter {
 
     public boolean onCommand(final CommandSender sender, final @NotNull Command command, final @NotNull String label, final String[] array) {
         if (!sender.hasPermission("BEDWARS1058.ADMIN")) {
-            sender.sendMessage(GUtils.addColors("You do not have permissions to execute this command!"));
+            sender.sendMessage(ProjectUtils.addColors("You do not have permissions to execute this command!"));
             return true;
         }
         if (array.length == 0) {
-            sender.sendMessage(GUtils.addColors("&aExecute the ( /golden reload ) command to reload the configuration."));
+            sender.sendMessage(ProjectUtils.addColors("&aExecute the ( /golden reload ) command to reload the configuration."));
         } else if (array.length == 1) {
             if (array[0].equalsIgnoreCase("reload")) {
                 GCommand.plugin.configManager.reload();
-                sender.sendMessage(GUtils.addColors("&aThe configuration has been successfully reloaded!"));
+                sender.sendMessage(ProjectUtils.addColors("&aThe configuration has been successfully reloaded!"));
                 return false;
             }
-            sender.sendMessage(GUtils.addColors("&aExecute the ( /golden reload ) command to reload the configuration."));
+            sender.sendMessage(ProjectUtils.addColors("&aExecute the ( /golden reload ) command to reload the configuration."));
         }
         return false;
     }

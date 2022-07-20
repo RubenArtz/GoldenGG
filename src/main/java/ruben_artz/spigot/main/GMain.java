@@ -4,6 +4,7 @@ import com.andrei1058.bedwars.api.BedWars;
 import com.andrei1058.bedwars.api.configuration.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import ruben_artz.spigot.commands.GCommand;
@@ -11,8 +12,8 @@ import ruben_artz.spigot.events.GAuto;
 import ruben_artz.spigot.events.GRemove;
 import ruben_artz.spigot.events.GWinners;
 import ruben_artz.spigot.events.GWrite;
-import ruben_artz.spigot.utils.GUpdater;
-import ruben_artz.spigot.utils.GUtils;
+import ruben_artz.spigot.utils.Updater;
+import ruben_artz.spigot.utils.ProjectUtils;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -37,7 +38,7 @@ public final class GMain extends JavaPlugin {
     }
 
     public void onDisable() {
-        GUpdater.shutdown();
+        Updater.shutdown();
     }
 
     public void setRegisterCommand() {
@@ -54,8 +55,8 @@ public final class GMain extends JavaPlugin {
     }
 
     public void setUtils() {
-        GUtils.setMetrics();
-        GUpdater.launch();
+        ProjectUtils.setMetrics();
+        Updater.launch();
     }
 
     public void sendLogger(final Level level, final String message) {

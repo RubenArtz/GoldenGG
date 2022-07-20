@@ -25,8 +25,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'me.clip:placeholderapi:2.11.1'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+    compileOnly 'me.clip:placeholderapi:2.11.2'
+    compileOnly 'org.jetbrains:annotations:23.0.0'
     compileOnly 'com.andrei1058.bedwars:bedwars-api:22.3.4'
     compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
 
@@ -41,7 +41,7 @@ java {
 shadowJar {
     archiveName("Golden GG.jar")
 
-    relocate("org.bstats", "ruben_artz.spigot.libs.bstats")
+    relocate("org.bstats", "ruben_artz.dependencies.bstats")
 }
 
 tasks.withType(JavaCompile) {
