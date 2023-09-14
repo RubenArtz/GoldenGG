@@ -1,11 +1,11 @@
-package ruben_artz.spigot.events;
+package ruben_artz.spigot.marcely.events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import ruben_artz.spigot.main.GMain;
+import ruben_artz.spigot.GMain;
 import ruben_artz.spigot.utils.ProjectUtils;
 
 public class GWrite implements Listener {
@@ -18,11 +18,11 @@ public class GWrite implements Listener {
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         String message = event.getMessage();
-        if (player.hasPermission("BEDWARS1058.GOLDEN") && plugin.write.contains(player.getUniqueId()) && message.equalsIgnoreCase("gg")) {
+
+        if (player.hasPermission("BedWars.Golden") && plugin.getWrite().contains(player.getUniqueId()) && message.equalsIgnoreCase("gg")) {
             event.setMessage(message
-                    .replace("gg", ProjectUtils.addColors(plugin.configManager.getString("GOLDEN-GG.TEXT-COLOR")) + "gg")
-                    .replace("GG", ProjectUtils.addColors(plugin.configManager.getString("GOLDEN-GG.TEXT-COLOR")) + "GG"));
-            plugin.write.remove(player.getUniqueId());
+                    .replace("gg", ProjectUtils.addColors(plugin.getConfig().getString("GOLDEN-GG.TEXT-COLOR")) + "gg")
+                    .replace("GG", ProjectUtils.addColors(plugin.getConfig().getString("GOLDEN-GG.TEXT-COLOR")) + "GG"));
         }
     }
 }
