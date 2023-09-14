@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
-import ruben_artz.spigot.main.GMain;
+import ruben_artz.spigot.GMain;
 import ruben_artz.spigot.utils.ProjectUtils;
 
 import java.util.ArrayList;
@@ -15,10 +15,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class GCommand implements CommandExecutor, TabCompleter {
-    private static final GMain plugin = GMain.getPlugin(GMain.class);
+    private final GMain plugin = GMain.getPlugin(GMain.class);
 
     public boolean onCommand(final CommandSender sender, final @NotNull Command command, final @NotNull String label, final String[] array) {
-        if (!sender.hasPermission("BEDWARS1058.ADMIN")) {
+        if (!sender.hasPermission("BedWars.Admin")) {
             sender.sendMessage(ProjectUtils.addColors("You do not have permissions to execute this command!"));
             return true;
         }
@@ -26,7 +26,8 @@ public class GCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(ProjectUtils.addColors("&aExecute the ( /golden reload ) command to reload the configuration."));
         } else if (array.length == 1) {
             if (array[0].equalsIgnoreCase("reload")) {
-                GCommand.plugin.configManager.reload();
+                plugin.saveDefaultConfig();
+                plugin.reloadConfig();
                 sender.sendMessage(ProjectUtils.addColors("&aThe configuration has been successfully reloaded!"));
                 return false;
             }
@@ -38,7 +39,7 @@ public class GCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(final CommandSender commandSender, final @NotNull Command command, final @NotNull String s, final String[] strings) {
         final List<String> completions = new ArrayList<>();
         final List<String> commands = new ArrayList<>();
-        if (!commandSender.hasPermission("BEDWARS1058.ADMIN")) {
+        if (!commandSender.hasPermission("BedWars.Admin")) {
             return null;
         }
         if (strings.length == 1) {
