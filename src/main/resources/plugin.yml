@@ -1,12 +1,11 @@
 #                                                           Developed by Ruben_Artz
 #
-#                                                     (PLAY.STN-STUDIOS.COM @ (C) 2018-2022)
+#                                                     (MC.STN-STUDIOS.DEV @ (C) 2018-2023)
 
 name: 'GoldenGG'
 version: '${version}'
-main: 'ruben_artz.spigot.main.GMain'
-depend: ['BedWars1058']
-softdepend: ['PlaceholderAPI']
+main: 'ruben_artz.spigot.GMain'
+softdepend: ['PlaceholderAPI', 'BedWars1058', 'MBedwars']
 authors: ['Ruben_Artz', 'STN Studios']
 description: 'Add a color when a player writes gg when winning a game of bedwars'
 website: 'https://www.spigotmc.org/resources/95321/'
