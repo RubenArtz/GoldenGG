@@ -5,6 +5,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import ruben_artz.spigot.commands.GCommand;
+import ruben_artz.spigot.event.marcely.GAuto;
+import ruben_artz.spigot.event.marcely.GRemove;
+import ruben_artz.spigot.event.marcely.GWinners;
+import ruben_artz.spigot.event.marcely.GWrite;
 import ruben_artz.spigot.utils.ProjectUtils;
 import ruben_artz.spigot.utils.Updater;
 
@@ -13,8 +17,9 @@ import java.util.*;
 public final class GMain extends JavaPlugin {
     private final PluginManager pluginManager = Bukkit.getPluginManager();
     public String latestVersion;
-    @Getter String version;
-    @Getter String prefix = "&8[&9GoldenGG&8]&f ";
+
+    @Getter String version = getDescription().getVersion();
+    @Getter String prefix = "&8[&9Golden GG&8]&f ";
     @Getter List<UUID> write = new ArrayList<>();
 
     public void onEnable() {
@@ -31,8 +36,8 @@ public final class GMain extends JavaPlugin {
         Marcely's Bedwars
          */
         if (ProjectUtils.isPluginEnabled("MBedwars")) {
-            final int supportedAPIVersion = 24;
-            final String supportedVersionName = "5.3.1";
+            final int supportedAPIVersion = 114;
+            final String supportedVersionName = "5.4.15";
 
             try {
                 Class<?> apiClass = Class.forName("de.marcely.bedwars.api.BedwarsAPI");
@@ -47,10 +52,10 @@ public final class GMain extends JavaPlugin {
             }
 
             Arrays.asList(
-                    new ruben_artz.spigot.marcely.events.GWrite(),
-                    new ruben_artz.spigot.marcely.events.GAuto(),
-                    new ruben_artz.spigot.marcely.events.GRemove(),
-                    new ruben_artz.spigot.marcely.events.GWinners())
+                    new GWrite(),
+                    new GAuto(),
+                    new GRemove(),
+                    new GWinners())
 
             .forEach((listener -> pluginManager.registerEvents(listener, this)));
         }
@@ -61,10 +66,10 @@ public final class GMain extends JavaPlugin {
 
         else if (ProjectUtils.isPluginEnabled("BedWars1058")) {
             Arrays.asList(
-                    new ruben_artz.spigot.bedwars1058.events.GWrite(),
-                    new ruben_artz.spigot.bedwars1058.events.GAuto(),
-                    new ruben_artz.spigot.bedwars1058.events.GRemove(),
-                    new ruben_artz.spigot.bedwars1058.events.GWinners())
+                    new ruben_artz.spigot.event.bedwars1058.GWrite(),
+                    new ruben_artz.spigot.event.bedwars1058.GAuto(),
+                    new ruben_artz.spigot.event.bedwars1058.GRemove(),
+                    new ruben_artz.spigot.event.bedwars1058.GWinners())
 
             .forEach((listener -> pluginManager.registerEvents(listener, this)));
         }
