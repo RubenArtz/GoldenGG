@@ -1,4 +1,4 @@
-package ruben_artz.spigot.bedwars1058.events;
+package ruben_artz.spigot.event.bedwars1058;
 
 import com.andrei1058.bedwars.api.BedWars;
 import com.andrei1058.bedwars.api.arena.IArena;

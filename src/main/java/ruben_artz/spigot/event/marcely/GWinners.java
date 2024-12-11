@@ -1,22 +1,24 @@
-package ruben_artz.spigot.marcely.events;
+package ruben_artz.spigot.event.marcely;
 
 import de.marcely.bedwars.api.event.arena.RoundEndEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import ruben_artz.spigot.GMain;
-import ruben_artz.spigot.utils.ProjectUtils;
 
-public class GRemove implements Listener {
+public class GWinners implements Listener {
     private final GMain plugin = GMain.getPlugin(GMain.class);
 
     /*
-    Removes all saved player UUIDs
+    Adds the player to the list of UUID's
      */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onRoundEndEvent(RoundEndEvent event) {
+        event.getWinners().forEach(player -> {
 
-        ProjectUtils.syncTaskLater(180L, () -> event.getWinners().forEach(player ->
-                plugin.getWrite().remove(player.getUniqueId())));
+            if (player != null && player.hasPermission("BedWars.Golden")) {
+                plugin.getWrite().add(player.getUniqueId());
+            }
+        });
     }
 }

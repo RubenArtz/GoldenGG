@@ -1,6 +1,6 @@
-package ruben_artz.spigot.bedwars1058.events;
+package ruben_artz.spigot.event.marcely;
 
-import com.andrei1058.bedwars.api.events.gameplay.GameEndEvent;
+import de.marcely.bedwars.api.event.arena.RoundEndEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,11 +11,12 @@ public class GRemove implements Listener {
     private final GMain plugin = GMain.getPlugin(GMain.class);
 
     /*
-     * Removes all saved player UUIDs
+    Removes all saved player UUIDs
      */
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void writeAuto(GameEndEvent event) {
+    public void onRoundEndEvent(RoundEndEvent event) {
+
         ProjectUtils.syncTaskLater(180L, () -> event.getWinners().forEach(player ->
-                plugin.getWrite().remove(player)));
+                plugin.getWrite().remove(player.getUniqueId())));
     }
 }

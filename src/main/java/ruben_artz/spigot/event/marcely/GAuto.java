@@ -1,4 +1,4 @@
-package ruben_artz.spigot.marcely.events;
+package ruben_artz.spigot.event.marcely;
 
 import de.marcely.bedwars.api.arena.Arena;
 import de.marcely.bedwars.api.arena.Team;
