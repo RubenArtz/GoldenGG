@@ -1,4 +1,5 @@
 # Golden GG
+
 Add a color when a player writes gg when winning a game of bedwars!
 ![](https://i.imgur.com/Fndh3bI.png)
 

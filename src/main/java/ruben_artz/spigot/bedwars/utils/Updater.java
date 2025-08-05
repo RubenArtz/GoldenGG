@@ -1,7 +1,7 @@
-package ruben_artz.spigot.utils;
+package ruben_artz.spigot.bedwars.utils;
 
 import org.bukkit.Bukkit;
-import ruben_artz.spigot.GMain;
+import ruben_artz.spigot.bedwars.GMain;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -25,7 +25,7 @@ public class Updater {
 
     public static void getUpdater() {
         try {
-            final HttpsURLConnection connection = (HttpsURLConnection)new URL("https://api.spigotmc.org/legacy/update.php?resource=95321").openConnection();
+            final HttpsURLConnection connection = (HttpsURLConnection) new URL("https://api.spigotmc.org/legacy/update.php?resource=95321").openConnection();
             final int time_out = 1250;
             connection.setConnectTimeout(time_out);
             connection.setReadTimeout(time_out);
@@ -36,7 +36,7 @@ public class Updater {
                 plugin.sendConsole("Please download the latest &e" + plugin.latestVersion + " version.");
                 plugin.sendConsole("--------------------------------------------------------------------------------------");
             }
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored) {}
     }
 }

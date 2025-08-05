@@ -1,6 +1,6 @@
 plugins {
-    id ("java")
-    id ("com.github.johnrengelman.shadow") version "8.1.1"
+    id("java")
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "ruben_artz.spigot"
@@ -29,21 +29,21 @@ repositories {
 }
 
 dependencies {
-    compileOnly ("org.spigotmc:spigot-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.21.3-R0.1-SNAPSHOT")
 
     /*
     Keep up to date
     Url: https://www.spigotmc.org/resources/6245/
     */
-    compileOnly ("me.clip:placeholderapi:2.11.6")
-    compileOnly ("org.jetbrains:annotations:23.0.0")
-    compileOnly ("com.andrei1058.bedwars:bedwars-api:22.3.4")
-    compileOnly ("de.marcely.bedwars:API:5.4.15")
+    compileOnly("me.clip:placeholderapi:2.11.6")
+    compileOnly("org.jetbrains:annotations:23.0.0")
+    compileOnly("com.andrei1058.bedwars:bedwars-api:22.3.4")
+    compileOnly("de.marcely.bedwars:API:5.4.15")
 
-    implementation ("org.bstats:bstats-bukkit:3.0.0")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
 
-    compileOnly ("org.projectlombok:lombok:1.18.24")
-    annotationProcessor ("org.projectlombok:lombok:1.18.24")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
 }
 
 tasks {

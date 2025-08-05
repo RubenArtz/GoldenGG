@@ -1,16 +1,16 @@
-package ruben_artz.spigot;
+package ruben_artz.spigot.bedwars;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import ruben_artz.spigot.commands.GCommand;
-import ruben_artz.spigot.event.marcely.GAuto;
-import ruben_artz.spigot.event.marcely.GRemove;
-import ruben_artz.spigot.event.marcely.GWinners;
-import ruben_artz.spigot.event.marcely.GWrite;
-import ruben_artz.spigot.utils.ProjectUtils;
-import ruben_artz.spigot.utils.Updater;
+import ruben_artz.spigot.bedwars.commands.GCommand;
+import ruben_artz.spigot.bedwars.event.bedwars1058.GAuto;
+import ruben_artz.spigot.bedwars.event.bedwars1058.GRemove;
+import ruben_artz.spigot.bedwars.event.bedwars1058.GWinners;
+import ruben_artz.spigot.bedwars.event.bedwars1058.GWrite;
+import ruben_artz.spigot.bedwars.utils.ProjectUtils;
+import ruben_artz.spigot.bedwars.utils.Updater;
 
 import java.util.*;
 
@@ -18,9 +18,12 @@ public final class GMain extends JavaPlugin {
     private final PluginManager pluginManager = Bukkit.getPluginManager();
     public String latestVersion;
 
-    @Getter String version = getDescription().getVersion();
-    @Getter String prefix = "&8[&9Golden GG&8]&f ";
-    @Getter List<UUID> write = new ArrayList<>();
+    @Getter
+    String version = getDescription().getVersion();
+    @Getter
+    String prefix = "&8[&9Golden GG&8]&f ";
+    @Getter
+    List<UUID> write = new ArrayList<>();
 
     public void onEnable() {
         if (ProjectUtils.isPluginEnabled("MBedwars") && ProjectUtils.isPluginEnabled("BedWars1058")) {
@@ -45,19 +48,19 @@ public final class GMain extends JavaPlugin {
 
                 if (apiVersion < supportedAPIVersion)
                     throw new IllegalStateException();
-            } catch(Exception e) {
+            } catch (Exception e) {
                 sendConsole(getPrefix() + "&cSorry, your installed version of MBedwars is not supported. Please install at least v" + supportedVersionName);
                 Bukkit.getPluginManager().disablePlugin(this);
                 return;
             }
 
             Arrays.asList(
-                    new GWrite(),
-                    new GAuto(),
-                    new GRemove(),
-                    new GWinners())
+                            new ruben_artz.spigot.bedwars.event.marcely.GWrite(),
+                            new ruben_artz.spigot.bedwars.event.marcely.GAuto(),
+                            new ruben_artz.spigot.bedwars.event.marcely.GRemove(),
+                            new ruben_artz.spigot.bedwars.event.marcely.GWinners())
 
-            .forEach((listener -> pluginManager.registerEvents(listener, this)));
+                    .forEach((listener -> pluginManager.registerEvents(listener, this)));
         }
 
         /*
@@ -66,12 +69,12 @@ public final class GMain extends JavaPlugin {
 
         else if (ProjectUtils.isPluginEnabled("BedWars1058")) {
             Arrays.asList(
-                    new ruben_artz.spigot.event.bedwars1058.GWrite(),
-                    new ruben_artz.spigot.event.bedwars1058.GAuto(),
-                    new ruben_artz.spigot.event.bedwars1058.GRemove(),
-                    new ruben_artz.spigot.event.bedwars1058.GWinners())
+                            new GWrite(),
+                            new GAuto(),
+                            new GRemove(),
+                            new GWinners())
 
-            .forEach((listener -> pluginManager.registerEvents(listener, this)));
+                    .forEach((listener -> pluginManager.registerEvents(listener, this)));
         }
 
         this.sendWelcome();
@@ -119,7 +122,7 @@ public final class GMain extends JavaPlugin {
         this.sendConsole("&9             \\$$$$$$  |\\$$$$$$  |");
         this.sendConsole("&9              \\______/  \\______/");
         this.sendConsole("");
-        this.sendConsole("&7         Developed by &c"+ getDescription().getAuthors());
+        this.sendConsole("&7         Developed by &c" + getDescription().getAuthors());
         this.sendConsole(getPrefix() + "&aVersion: &c" + getVersion() + " &ais loading...");
         this.sendConsole(getPrefix() + "&aServer: &c" + Bukkit.getVersion());
         this.sendConsole(getPrefix() + "&aLoading necessary files...");

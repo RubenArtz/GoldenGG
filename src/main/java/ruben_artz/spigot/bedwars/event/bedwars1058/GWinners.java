@@ -1,4 +1,4 @@
-package ruben_artz.spigot.event.bedwars1058;
+package ruben_artz.spigot.bedwars.event.bedwars1058;
 
 import com.andrei1058.bedwars.api.events.gameplay.GameEndEvent;
 import org.bukkit.Bukkit;
@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import ruben_artz.spigot.GMain;
+import ruben_artz.spigot.bedwars.GMain;
 
 public class GWinners implements Listener {
     private final GMain plugin = GMain.getPlugin(GMain.class);

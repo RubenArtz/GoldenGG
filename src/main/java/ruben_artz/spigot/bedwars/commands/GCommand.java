@@ -1,4 +1,4 @@
-package ruben_artz.spigot.commands;
+package ruben_artz.spigot.bedwars.commands;
 
 import com.google.common.collect.ImmutableList;
 import org.bukkit.command.Command;
@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
-import ruben_artz.spigot.GMain;
-import ruben_artz.spigot.utils.ProjectUtils;
+import ruben_artz.spigot.bedwars.GMain;
+import ruben_artz.spigot.bedwars.utils.ProjectUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

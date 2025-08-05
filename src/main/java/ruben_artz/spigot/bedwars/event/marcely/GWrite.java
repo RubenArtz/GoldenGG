@@ -1,12 +1,12 @@
-package ruben_artz.spigot.event.marcely;
+package ruben_artz.spigot.bedwars.event.marcely;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import ruben_artz.spigot.GMain;
-import ruben_artz.spigot.utils.ProjectUtils;
+import ruben_artz.spigot.bedwars.GMain;
+import ruben_artz.spigot.bedwars.utils.ProjectUtils;
 
 public class GWrite implements Listener {
     private final GMain plugin = GMain.getPlugin(GMain.class);

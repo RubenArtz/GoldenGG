@@ -1,4 +1,4 @@
-package ruben_artz.spigot.event.marcely;
+package ruben_artz.spigot.bedwars.event.marcely;
 
 import de.marcely.bedwars.api.arena.Arena;
 import de.marcely.bedwars.api.arena.Team;
@@ -6,8 +6,8 @@ import de.marcely.bedwars.api.event.arena.RoundEndEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import ruben_artz.spigot.GMain;
-import ruben_artz.spigot.utils.ProjectUtils;
+import ruben_artz.spigot.bedwars.GMain;
+import ruben_artz.spigot.bedwars.utils.ProjectUtils;
 
 import java.util.Objects;
 
@@ -36,15 +36,15 @@ public class GAuto implements Listener {
         Send the message to players who are spectators
          */
         arena.getSpectators().forEach(player -> event.getWinners().forEach(winner -> {
-           Team team = arena.getPlayerTeam(winner);
+            Team team = arena.getPlayerTeam(winner);
 
-           if (winner != null && team != null && winner.hasPermission("BedWars.Golden.Auto")) {
+            if (winner != null && team != null && winner.hasPermission("BedWars.Golden.Auto")) {
 
-               ProjectUtils.sendMessage(player, winner, Objects.requireNonNull(plugin.getConfig().getString("GOLDEN-GG.TEXT-AUTO-GG"))
-                       .replace("{Player}", winner.getName())
-                       .replace("{Level}", "")
-                       .replace("{Team Color}", team.getBungeeChatColor() + "[" + team.getDisplayName().toUpperCase() + "]"));
-           }
+                ProjectUtils.sendMessage(player, winner, Objects.requireNonNull(plugin.getConfig().getString("GOLDEN-GG.TEXT-AUTO-GG"))
+                        .replace("{Player}", winner.getName())
+                        .replace("{Level}", "")
+                        .replace("{Team Color}", team.getBungeeChatColor() + "[" + team.getDisplayName().toUpperCase() + "]"));
+            }
         }));
     }
 }

@@ -1,4 +1,4 @@
-package ruben_artz.spigot.utils;
+package ruben_artz.spigot.bedwars.utils;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
@@ -6,7 +6,7 @@ import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SingleLineChart;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import ruben_artz.spigot.GMain;
+import ruben_artz.spigot.bedwars.GMain;
 
 import java.util.Objects;
 
