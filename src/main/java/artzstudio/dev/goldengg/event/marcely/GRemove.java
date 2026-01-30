@@ -19,4 +19,25 @@
  *
  */
 
-rootProject.name = "GoldenGG"
+package artzstudio.dev.goldengg.event.marcely;
+
+import de.marcely.bedwars.api.event.arena.RoundEndEvent;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import artzstudio.dev.goldengg.GMain;
+import artzstudio.dev.goldengg.utils.ProjectUtils;
+
+public class GRemove implements Listener {
+    private final GMain plugin = GMain.getPlugin(GMain.class);
+
+    /*
+    Removes all saved player UUIDs
+     */
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onRoundEndEvent(RoundEndEvent event) {
+
+        ProjectUtils.syncTaskLater(180L, () -> event.getWinners().forEach(player ->
+                plugin.getWrite().remove(player.getUniqueId())));
+    }
+}

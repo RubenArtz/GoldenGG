@@ -1,16 +1,37 @@
-package ruben_artz.spigot.bedwars;
+/*
+ *
+ *  * Copyright (c) 2026 RubenArtz and Artz Studio.
+ *  *
+ *  * This file is part of GoldenGG.
+ *  *
+ *  * GoldenGG is free software: you can redistribute it and/or modify
+ *  * it under the terms of the GNU General Public License as published by
+ *  * the Free Software Foundation, either version 3 of the License, or
+ *  * (at your option) any later version.
+ *  *
+ *  * GoldenGG is distributed in the hope that it will be useful,
+ *  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  * GNU General Public License for more details.
+ *  *
+ *  * You should have received a copy of the GNU General Public License
+ *  * along with GoldenGG.  If not, see https://www.gnu.org/licenses/.
+ *
+ */
+
+package artzstudio.dev.goldengg;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import ruben_artz.spigot.bedwars.commands.GCommand;
-import ruben_artz.spigot.bedwars.event.bedwars1058.GAuto;
-import ruben_artz.spigot.bedwars.event.bedwars1058.GRemove;
-import ruben_artz.spigot.bedwars.event.bedwars1058.GWinners;
-import ruben_artz.spigot.bedwars.event.bedwars1058.GWrite;
-import ruben_artz.spigot.bedwars.utils.ProjectUtils;
-import ruben_artz.spigot.bedwars.utils.Updater;
+import artzstudio.dev.goldengg.commands.GCommand;
+import artzstudio.dev.goldengg.event.bedwars1058.GAuto;
+import artzstudio.dev.goldengg.event.bedwars1058.GRemove;
+import artzstudio.dev.goldengg.event.bedwars1058.GWinners;
+import artzstudio.dev.goldengg.event.bedwars1058.GWrite;
+import artzstudio.dev.goldengg.utils.ProjectUtils;
+import artzstudio.dev.goldengg.utils.Updater;
 
 import java.util.*;
 
@@ -55,10 +76,10 @@ public final class GMain extends JavaPlugin {
             }
 
             Arrays.asList(
-                            new ruben_artz.spigot.bedwars.event.marcely.GWrite(),
-                            new ruben_artz.spigot.bedwars.event.marcely.GAuto(),
-                            new ruben_artz.spigot.bedwars.event.marcely.GRemove(),
-                            new ruben_artz.spigot.bedwars.event.marcely.GWinners())
+                            new artzstudio.dev.goldengg.event.marcely.GWrite(),
+                            new artzstudio.dev.goldengg.event.marcely.GAuto(),
+                            new artzstudio.dev.goldengg.event.marcely.GRemove(),
+                            new artzstudio.dev.goldengg.event.marcely.GWinners())
 
                     .forEach((listener -> pluginManager.registerEvents(listener, this)));
         }
